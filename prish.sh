@@ -5,6 +5,9 @@ export ARCH=arm64
 export ANDROID_MAJOR_VERSION=q
 export PLATFORM_VERSION=10.0.0
 export USE_CCACHE=1
+export CROSS_COMPILE=/home/neel/Desktop/toolchain/linaro/bin/aarch64-linux-gnu-
+export CLANG_TRIPLE=/home/neel/Desktop/toolchain/clang/bin/aarch64-linux-gnu-
+export CC=/home/neel/Desktop/toolchain/clang/bin/clang
 
 clear
 echo "                                                     "
