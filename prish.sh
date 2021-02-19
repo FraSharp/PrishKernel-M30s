@@ -1,11 +1,42 @@
 #!/bin/bash
 echo "Setting Up Environment"
 echo ""
-export ARCH=arm64
-export ANDROID_MAJOR_VERSION=q
+
+# Check if have gcc/32 & clang folder
+if [ ! -d "$(pwd)/gcc/" ]; then
+   git clone --depth 1 git://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 gcc
+fi
+
+# Export KBUILD flags
+export KBUILD_BUILD_USER=Neel0210
+export KBUILD_BUILD_HOST=Hell
+
+# Export ARCH/SUBARCH flags
+export ARCH="arm64"
+export SUBARCH="arm64"
+
+# Export ANDROID VERSION
+export ANDROID_MAJOR_VERSION="q"
 export PLATFORM_VERSION=10.0.0
+
+# Ccache
 export USE_CCACHE=1
-export CROSS_COMPILE=/home/neel/Desktop/toolchain/linaro/bin/aarch64-linux-gnu-
+export CCACHE="$(which ccache)"
+
+# Export toolchain/cross flags
+export TOOLCHAIN="aarch64-linux-android-"
+
+#export CLANG_TRIPLE="aarch64-linux-gnu-"
+export CROSS_COMPILE="$(pwd)/gcc/bin/${TOOLCHAIN}"
+
+# TC
+#export CROSS_COMPILE=/home/neel/Desktop/toolchain/linaro/bin/aarch64-linux-gnu-
+
+#export CROSS_COMPILE_ARM32="$(pwd)/gcc32/bin/arm-linux-androideabi-"
+#export WITH_OUTDIR=true
+
+# Export PATH flag
+export PATH="${PATH}:$(pwd)/clang/bin:$(pwd)/gcc/bin:$(pwd)/gcc32/bin"
 export CLANG_TRIPLE=/home/neel/Desktop/toolchain/clang/bin/aarch64-linux-gnu-
 export CC=/home/neel/Desktop/toolchain/clang/bin/clang
 
@@ -18,7 +49,7 @@ echo " | |_) | |  | \__ \ | | | \__ \ (__| |  | | |_) | |_ "
 echo " | .__/|_|  |_|___/_| |_| |___/\___|_|  |_| .__/ \__|"
 echo " |_|                                      |_|        "
 echo "                                                     "
-echo "              coded by Neel0210, DAvinash97          "
+echo "              coded by Neel0210, DAvinash97, yukosky "
 echo "                                                     "
 echo "Select"
 echo "1 = Clear"
