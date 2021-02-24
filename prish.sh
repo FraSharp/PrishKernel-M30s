@@ -3,9 +3,9 @@ echo "Setting Up Environment"
 echo ""
 
 # Check if have gcc/32 & clang folder
-if [ ! -d "$(pwd)/gcc/" ]; then
-   git clone --depth 1 git://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 gcc
-fi
+#if [ ! -d "$(pwd)/gcc/" ]; then
+#   git clone --depth 1 git://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 gcc
+#fi
 
 # Export KBUILD flags
 export KBUILD_BUILD_USER=Neel0210
@@ -24,19 +24,19 @@ export USE_CCACHE=1
 export CCACHE="$(which ccache)"
 
 # Export toolchain/cross flags
-export TOOLCHAIN="aarch64-linux-android-"
+#export TOOLCHAIN="aarch64-linux-android-"
 
 #export CLANG_TRIPLE="aarch64-linux-gnu-"
-export CROSS_COMPILE="$(pwd)/gcc/bin/${TOOLCHAIN}"
+#export CROSS_COMPILE="$(pwd)/gcc/bin/${TOOLCHAIN}"
 
 # TC
-#export CROSS_COMPILE=/home/neel/Desktop/toolchain/linaro/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=/home/neel/Desktop/toolchain/linaro/bin/aarch64-linux-gnu-
 
 #export CROSS_COMPILE_ARM32="$(pwd)/gcc32/bin/arm-linux-androideabi-"
 #export WITH_OUTDIR=true
 
 # Export PATH flag
-export PATH="${PATH}:$(pwd)/clang/bin:$(pwd)/gcc/bin:$(pwd)/gcc32/bin"
+#export PATH="${PATH}:$(pwd)/clang/bin:$(pwd)/gcc/bin:$(pwd)/gcc32/bin"
 export CLANG_TRIPLE=/home/neel/Desktop/toolchain/clang/bin/aarch64-linux-gnu-
 export CC=/home/neel/Desktop/toolchain/clang/bin/clang
 
@@ -102,7 +102,7 @@ rm ./PRISH/AK/1.zip
 # If other device make change here
 ############################################
 make m30sdd_defconfig
-make -j64
+make -j$(($(nproc) + 1))
 echo ""
 echo "Kernel Compiled"
 echo ""
@@ -118,7 +118,7 @@ echo "============"
 # If other device make change here
 ############################################
 make m30sdd_defconfig
-make -j64
+make -j$(($(nproc) + 1))
 echo ""
 echo "Kernel Compiled"
 echo ""
@@ -151,7 +151,7 @@ rm ./PRISH/AK/1.zip
 # If other device make change here
 ############################################
 make m30sdd_defconfig
-make -j64
+make -j$(($(nproc) + 1))
 echo "Kernel Compiled"
 echo ""
 echo "======================="
