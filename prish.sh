@@ -37,7 +37,7 @@ export CROSS_COMPILE=/home/francesco/linaro/bin/aarch64-linux-gnu-
 
 # Export PATH flag
 #export PATH="${PATH}:$(pwd)/clang/bin:$(pwd)/gcc/bin:$(pwd)/gcc32/bin"
-export CLANG_TRIPLE=/home/francesco/clang/bin/llvm-
+export CLANG_TRIPLE=/home/francesco/clang/bin/clang-
 export CC=/home/francesco/clang/bin/clang
 
 clear
