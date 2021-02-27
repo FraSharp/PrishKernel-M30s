@@ -312,9 +312,9 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/x86/ -e s/x86_64/x86/ \
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?=arm64
-CROSS_COMPILE	?=/home/neel/Desktop/toolchain/linaro/bin/aarch64-linux-gnu-
-CLANG_TRIPLE    ?= /home/neel/Desktop/toolchain/clang/bin/aarch64-linux-gnu-
-CC              = /home/neel/Desktop/toolchain/clang/bin/clang
+CROSS_COMPILE	?=/home/francesco/linaro/bin/aarch64-linux-gnu-
+CLANG_TRIPLE    ?=/home/francesco/clang/bin/clang-
+CC              =/home/francesco/clang/bin/clang
 
 
 # Architecture as present in compile.h
