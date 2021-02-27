@@ -30,15 +30,15 @@ export CCACHE="$(which ccache)"
 #export CROSS_COMPILE="$(pwd)/gcc/bin/${TOOLCHAIN}"
 
 # TC
-export CROSS_COMPILE=/home/neel/Desktop/toolchain/linaro/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=/home/francesco/linaro/bin/aarch64-linux-gnu-
 
 #export CROSS_COMPILE_ARM32="$(pwd)/gcc32/bin/arm-linux-androideabi-"
 #export WITH_OUTDIR=true
 
 # Export PATH flag
 #export PATH="${PATH}:$(pwd)/clang/bin:$(pwd)/gcc/bin:$(pwd)/gcc32/bin"
-export CLANG_TRIPLE=/home/neel/Desktop/toolchain/clang/bin/aarch64-linux-gnu-
-export CC=/home/neel/Desktop/toolchain/clang/bin/clang
+export CLANG_TRIPLE=/home/francesco/clang/clang/bin/aarch64-linux-gnu-
+export CC=/home/francesco/clang/clang/bin/clang
 
 clear
 echo "                                                     "
